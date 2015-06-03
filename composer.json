@@ -1,0 +1,14 @@
+"repositories": [
+    {
+        "type": "package",
+        "package": {
+            "name": "toontilley/productColorizer",
+            "version": "dev-master",
+            "source": {
+                "url": "git://github.com/toontilley/productColorizer.git",
+                "type": "git",
+                "reference": "master"
+            }
+        }
+    }
+],
