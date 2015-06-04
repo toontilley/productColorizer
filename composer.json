@@ -1,0 +1,18 @@
+{
+    "name": "toontilley/productColorizer",
+    "description": "Product colorizer images",
+    "keywords": ["framework"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nikrablin"
+        },
+        {
+            "name": "Mark Tilley"
+        }
+    ],
+    "require": {
+        "components/jquery": "2.1.4"
+    }
+    
+}
