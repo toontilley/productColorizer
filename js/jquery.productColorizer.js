@@ -15,8 +15,8 @@
 		var defaults = {  
 			transparency: 0.55,
 			swatchTransparency: 0.75,
-			secondaryTransparency: 0.55,
-			swatchClass: '.swatch'
+			secondaryTransparency: 0.55//,
+			//swatchClass: '.swatch'
 		};
 		// extend defaults
 		var options = $.extend(defaults, options); 
@@ -27,29 +27,35 @@
 			var o = options;
 			var obj = $(this);
 			var swatch = obj.find(o.swatchClass);
-			var swatches = obj.find(o.swatchClass + " a");
+			//var swatches = obj.find(o.swatchClass + " a");
 			var mask = obj.find('.mask');
-			
 			// set swatch colors with the rel values
-			$(swatches).each(function(){
+			//$(swatches).each(function(){
+			$('.swatch').children('a').each(function () {
 				var color = "rgba(" + $(this).attr('rel') + "," + o.swatchTransparency + ")";
 				$(this).html('<span>'+$(this).html()+'</span>');
 				$(this).find('span').css('background', color);
-				if($.browser.msie) {
-					color = $(this).attr('rel');
-					var colors = color.split(",");
-					color = "#" + colorToHex(colors);
-					$(this).find('span').css({'background-color': color});
-				}
+				//if($.browser.msie) {
+				//	color = $(this).attr('rel');
+				//	var colors = color.split(",");
+				//	color = "#" + colorToHex(colors);
+				//	$(this).find('span').css({'background-color': color});
+				//}
 			});
 			
 			// set background color of mask with rel values and transparency
-			$(swatches).click(function(e) {
+			$(".swatch a").click(function(e){
+			//$(swatches).click(function(e) {
 				e.preventDefault();
-				$(swatches).removeClass('active');
+				//$(swatches).removeClass('active');
+				$('.swatch').children('a').each(function () {
+					$(this).removeClass('active')
+				});
 				$(this).addClass('active');
+				
 				var color = "rgba(" + $(this).attr('rel') + "," + o.transparency + ")";
 				var mask = $(this).attr('href');
+				
 				if($(mask).attr('role')) {
 					$(mask).empty();
 					var R = Raphael(mask.substring(1), $(mask).width(), $(mask).height());
